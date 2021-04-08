@@ -1,5 +1,7 @@
-﻿using Microsoft.EntityFrameworkCore;
+using FullSearchSqlServer.Products;
+using Microsoft.EntityFrameworkCore;
 using Volo.Abp;
+using Volo.Abp.EntityFrameworkCore.Modeling;
 
 namespace FullSearchSqlServer.EntityFrameworkCore
 {
@@ -17,6 +19,15 @@ namespace FullSearchSqlServer.EntityFrameworkCore
             //    b.ConfigureByConvention(); //auto configure for the base class props
             //    //...
             //});
+
+            builder.Entity<Product>(b =>
+            {
+                b.ToTable(FullSearchSqlServerConsts.DbTablePrefix + "Products", FullSearchSqlServerConsts.DbSchema);
+                b.ConfigureByConvention();
+                b.Property(p => p.Name).HasMaxLength(100);
+
+                /* Configure more properties here */
+            });
         }
     }
 }

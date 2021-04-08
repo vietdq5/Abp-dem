@@ -1,4 +1,6 @@
-﻿using AutoMapper;
+using FullSearchSqlServer.Products;
+using FullSearchSqlServer.Products.Dtos;
+using AutoMapper;
 
 namespace FullSearchSqlServer
 {
@@ -9,6 +11,8 @@ namespace FullSearchSqlServer
             /* You can configure your AutoMapper mapping configuration here.
              * Alternatively, you can split your mapping configurations
              * into multiple profile classes for a better organization. */
+            CreateMap<Product, ProductDto>();
+            CreateMap<CreateUpdateProductDto, Product>(MemberList.Source);
         }
     }
 }

@@ -1,10 +1,11 @@
-﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 using FullSearchSqlServer.Users;
 using Volo.Abp.Data;
 using Volo.Abp.EntityFrameworkCore;
 using Volo.Abp.EntityFrameworkCore.Modeling;
 using Volo.Abp.Identity;
 using Volo.Abp.Users.EntityFrameworkCore;
+using FullSearchSqlServer.Products;
 
 namespace FullSearchSqlServer.EntityFrameworkCore
 {
@@ -25,6 +26,7 @@ namespace FullSearchSqlServer.EntityFrameworkCore
         /* Add DbSet properties for your Aggregate Roots / Entities here.
          * Also map them inside FullSearchSqlServerDbContextModelCreatingExtensions.ConfigureFullSearchSqlServer
          */
+        public DbSet<Product> Products { get; set; }
 
         public FullSearchSqlServerDbContext(DbContextOptions<FullSearchSqlServerDbContext> options)
             : base(options)
